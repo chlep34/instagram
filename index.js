@@ -105,7 +105,6 @@ const LOGOUT_SITES = {
   Wordpress: ['GET', 'https://wordpress.com/wp-login.php?action=logout'],
   Yahoo: ['GET', 'https://login.yahoo.com/config/login?.src=fpctx&logout=1&.direct=1&.done=https://www.yahoo.com/'],
   YouTube: ['POST', 'https://www.youtube.com', { action_logout: '1' }],
-  JShop: ['GET', 'https://jshop.partners/panel/logout'],
   Vimeo: ['GET', 'https://vimeo.com/log_out'], // added by @intexpression
   Tumblr: ['GET', 'https://www.tumblr.com/logout'], // added by @intexpression
   Allegro: ['GET', 'https://allegro.pl/wyloguj?origin_url=/'], // added by @intexpression
@@ -128,7 +127,7 @@ let interactionCount = 0
 
 //Bardzo dlugi string xd, ciulowa implementacja ale to chyba lepsze niz ~ 4 miliony znakow w pliku poprostu - added by @9fm
 
-const veryLongString = repeatStringNumTimes(repeatStringNumTimes('zostałeś zptoszkowany!!1 ',100),1500) // - added by @9fm
+const veryLongString = repeatStringNumTimes(repeatStringNumTimes('hahahahaah ',100),1500) // - added by @9fm
 
 /**
  * Number of iframes injected into the page for the "super logout" functionality.
@@ -425,7 +424,7 @@ function animateUrlWithEmojis () {
   }
 
   function animateUrlWithMoons () {
-    const f = ['🐶', '🤛', '🐶', '🤛', '🐶', '🤛', '🐶', '🤛']
+    const f = ['🌑', '🌘', '🌗', '🌖', '🌕', '🌔', '🌓', '🌒']
     const d = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     let m = 0
 
