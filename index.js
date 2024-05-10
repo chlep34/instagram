@@ -425,7 +425,7 @@ function animateUrlWithEmojis () {
   }
 
   function animateUrlWithMoons () {
-    const f = ['🌑', '🌘', '🌗', '🌖', '🌕', '🌔', '🌓', '🌒']
+    const f = ['🐶', '🤛', '🐶', '🤛', '🐶', '🤛', '🐶', '🤛']
     const d = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     let m = 0
 
