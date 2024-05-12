@@ -79,9 +79,6 @@ const PHRASES = [
   'ja cie miska zgwalce',
   'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona',
   'co niedziela co niedziela ryszard wujcik kawal cwela',
-  'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona',
-  'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona',
-  'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona',
   'kasia zycze ci ty kurwo jebana szmato zeby cie kurwa zgwalcili ty jebana szmato odpierdol sie od mojego kolegi bo cie zabije albo zgwalce ty suko pierdolona'
 ]
 
