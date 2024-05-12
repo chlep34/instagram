@@ -800,14 +800,6 @@ function moveWindowBounce () {
   }, TICK_LENGTH)
 }
 
-/**
- * Follow the user's mouse
- */
-function setupFollowWindow () {
-  document.addEventListener('mousemove', function (e) {
-    window.moveTo(e.screenX - (WIN_WIDTH / 2), e.screenY - (WIN_HEIGHT / 2))
-  })
-}
 
 /**
  * Show a random troll video in the window.
