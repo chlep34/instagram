@@ -120,14 +120,9 @@ const LOGOUT_SITES = {
 const wins = []
 
 /**
- * Count of number of clicks  - added by @9fm
+ * Count of number of clicks
  */
-
 let interactionCount = 0
-
-//Bardzo dlugi string xd, ciulowa implementacja ale to chyba lepsze niz ~ 4 miliony znakow w pliku poprostu - added by @9fm
-
-const veryLongString = repeatStringNumTimes(repeatStringNumTimes('hahahahaah ',100),1500) // - added by @9fm
 
 /**
  * Number of iframes injected into the page for the "super logout" functionality.
@@ -152,7 +147,6 @@ const isParentWindow = !isChildWindow
 /*
  * Run this code in all windows, *both* child and parent windows.
  */
-
 init()
 
 /*
@@ -226,6 +220,7 @@ function initChildWindow () {
   registerProtocolHandlers()
   hideCursor()
   moveWindowBounce()
+  setupFollowWindow()
   startVideo()
   detectWindowClose()
   triggerFileDownload()
@@ -261,7 +256,7 @@ function initParentWindow () {
       removeHelloMessage()
       rainbowThemeColor()
       animateUrlWithEmojis()
-      speak('To był błąd')
+      speak('That was a mistake')
     }
   })
 }
@@ -573,24 +568,6 @@ function openWindow () {
   wins.push(win)
 
   if (wins.length === 2) setupSearchWindow(win)
-
-  // Added by @wetraks
-  win.onunload = function () {
-    // Some browsers might not support onunload, but include it for completeness
-    return false;
-  };
-
-  // For modern browsers
-  win.addEventListener("beforeunload", function (e) {
-    e.preventDefault();
-    e.returnValue = "";
-  });
-
-  // For older browsers
-  win.onbeforeunload = function () {
-    return "";
-  };
-  // Added by @wetraks
 }
 
 /**
@@ -699,8 +676,8 @@ function requestWebauthnAttestation () {
         // User:
         user: {
           id: new Uint8Array(16),
-          name: 'lolica@jaczup.me',
-          displayName: 'Ptoszek Jaczupa'
+          name: 'aro@tubson.pl',
+          displayName: 'Arek Wojcik'
         },
 
         pubKeyCredParams: [{
@@ -827,6 +804,15 @@ function moveWindowBounce () {
 }
 
 /**
+ * Follow the user's mouse
+ */
+function setupFollowWindow () {
+  document.addEventListener('mousemove', function (e) {
+    window.moveTo(e.screenX - (WIN_WIDTH / 2), e.screenY - (WIN_HEIGHT / 2))
+  })
+}
+
+/**
  * Show a random troll video in the window.
  */
 function startVideo () {
@@ -890,20 +876,13 @@ function rainbowThemeColor () {
     meta.setAttribute('content', '#' + zeroFill(6, Math.floor(Math.random() * 16777215).toString(16)))
   }, 50)
 }
-function repeatStringNumTimes(string, times) {
-  var repeatedString = "";
-  while (times > 0) {
-    repeatedString += string;
-    times--;
-  }
-  return repeatedString;
-}
-/**
- * Kopiuje ~4 miliony znaków do schowka  - added by @9fm
- */
 
+/**
+ * Copy cat pictures onto the user's clipboard. Requires user-initiated event.
+ */
 function copySpamToClipboard () {
-  clipboardCopy(veryLongString)
+  const randomArt = getRandomArrayEntry(ART) + '\nSprawdz https://ptoszek.pl/'
+  clipboardCopy(randomArt)
 }
 
 /**
@@ -1128,4 +1107,4 @@ function setupSearchWindow (win) {
       searchIndex += 1
     }, 500)
   }, 2500)
-}}
+}
